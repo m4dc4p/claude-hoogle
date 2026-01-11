@@ -105,10 +105,18 @@ if [[ $EXIT_CODE -ne 0 ]]; then
     fi
 fi
 
-# Check for empty results
-if [[ -z "$OUTPUT" ]] || [[ "$OUTPUT" == "[]" ]]; then
+# Check for empty results or "No results found" message
+if [[ -z "$OUTPUT" ]] || [[ "$OUTPUT" == "[]" ]] || [[ "$OUTPUT" == "No results found" ]]; then
     echo '{"results": [], "query": "'"$QUERY"'", "count": 0}'
     exit 0
+fi
+
+# Verify output is valid JSON before processing
+if ! echo "$OUTPUT" | jq . &>/dev/null; then
+    # Not valid JSON - might be an error message
+    ESCAPED_OUTPUT=$(echo "$OUTPUT" | sed 's/\\/\\\\/g; s/"/\\"/g; s/\t/\\t/g' | tr '\n' ' ')
+    echo '{"error": "invalid_output", "message": "'"$ESCAPED_OUTPUT"'"}' >&2
+    exit 1
 fi
 
 # Wrap the results in our standard format
