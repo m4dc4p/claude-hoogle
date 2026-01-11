@@ -1,17 +1,33 @@
 # Hoogle Plugin for Claude Code
 
-Search your local Haskell project's APIs using [Hoogle](https://hoogle.haskell.org/) directly from Claude Code. This plugin uses a local Hoogle database, not the online version.
+Search Haskell APIs using [Hoogle](https://hoogle.haskell.org/) directly from Claude Code.
 
-## Usage
+## Commands
 
-### Slash Command
+### `/hoogle:search` - Local Search
 
-Use `/hoogle:search` to search for Haskell functions:
+Search your local Hoogle database:
 
 ```
 /hoogle:search map
 /hoogle:search (a -> Bool) -> [a] -> [a]
 /hoogle:search +base foldl
+```
+
+Requires `hoogle` executable on PATH. Local database is generated automatically on first use.
+
+### `/hoogle:remote` - Online Search
+
+Search the official Hoogle server at hoogle.haskell.org:
+
+```
+/hoogle:remote map
+/hoogle:remote (a -> Bool) -> [a] -> [a]
+```
+
+Use a custom Hoogle server:
+```
+/hoogle:remote map --url https://custom-hoogle.example.com
 ```
 
 ### Automatic Skill
@@ -25,11 +41,6 @@ The hoogle skill activates automatically when Claude is working with Haskell cod
 | Find by name | `map`, `filter`, `foldl` |
 | Find by type | `a -> b -> a`, `(a -> Bool) -> [a] -> [a]` |
 | Filter by package | `+base map`, `+containers lookup` |
-
-## Requirements
-
-- `hoogle` executable must be on PATH
-- Local database is generated automatically on first use (may take several minutes)
 
 ## Installation
 
