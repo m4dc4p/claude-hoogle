@@ -1,6 +1,6 @@
 # Hoogle Plugin for Claude Code
 
-Search Haskell APIs using [Hoogle](https://hoogle.haskell.org/) directly from Claude Code.
+Search your local Haskell project's APIs using [Hoogle](https://hoogle.haskell.org/) directly from Claude Code. This plugin uses a local Hoogle database, not the online version.
 
 ## Usage
 
@@ -29,7 +29,7 @@ The hoogle skill activates automatically when Claude is working with Haskell cod
 ## Requirements
 
 - `hoogle` executable must be on PATH
-- Database is generated automatically on first use (may take several minutes)
+- Local database is generated automatically on first use (may take several minutes)
 
 ## Installation
 
