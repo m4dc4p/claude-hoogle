@@ -1,6 +1,6 @@
 ---
 description: Search Haskell APIs with Hoogle - find functions by name or type signature
-allowed-tools: Bash(./scripts/hoogle-search.sh:*), Bash(./scripts/hoogle-init-db.sh:*)
+allowed-tools: Bash(${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-search.sh:*), Bash(${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-init-db.sh:*)
 ---
 
 # Hoogle Search
@@ -22,12 +22,12 @@ User query: $ARGUMENTS
 
 2. Run the Hoogle search:
    ```bash
-   ./scripts/hoogle-search.sh "$ARGUMENTS" --count 10
+   ${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-search.sh "$ARGUMENTS" --count 10
    ```
 
 3. If the search fails with a database error:
    - Inform the user that the database needs to be initialized
-   - Run `./scripts/hoogle-init-db.sh` to generate it
+   - Run `${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-init-db.sh` to generate it
    - This may take several minutes on first run
 
 4. Present results clearly:

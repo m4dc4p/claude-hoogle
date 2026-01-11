@@ -21,7 +21,7 @@ Use Hoogle proactively when:
 ### Search by Function Name
 
 ```bash
-./scripts/hoogle-search.sh "map"
+${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-search.sh "map"
 ```
 
 Returns functions named "map" or containing "map" in their name.
@@ -29,7 +29,7 @@ Returns functions named "map" or containing "map" in their name.
 ### Search by Type Signature
 
 ```bash
-./scripts/hoogle-search.sh "a -> b -> a"
+${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-search.sh "a -> b -> a"
 ```
 
 Returns functions matching that type signature. Type variables are automatically generalized.
@@ -38,15 +38,15 @@ Returns functions matching that type signature. Type variables are automatically
 
 Include package names in the query:
 ```bash
-./scripts/hoogle-search.sh "+base map"
-./scripts/hoogle-search.sh "+containers Data.Map.lookup"
+${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-search.sh "+base map"
+${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-search.sh "+containers Data.Map.lookup"
 ```
 
 ### Get Detailed Info
 
 Use `--info` for the first result's documentation:
 ```bash
-./scripts/hoogle-search.sh "foldl" --info
+${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-search.sh "foldl" --info
 ```
 
 ## Understanding Results
@@ -78,7 +78,7 @@ Key fields:
 
 Before searching, ensure the Hoogle database exists:
 ```bash
-./scripts/hoogle-init-db.sh
+${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-init-db.sh
 ```
 
 This checks for a valid database and generates one from Stackage if needed. Generation takes several minutes on first run.
@@ -87,7 +87,7 @@ This checks for a valid database and generates one from Stackage if needed. Gene
 
 For project-specific searches, generate a local database:
 ```bash
-./scripts/hoogle-init-db.sh --local /path/to/haddock/docs
+${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-init-db.sh --local /path/to/haddock/docs
 ```
 
 ## Common Search Patterns
@@ -111,7 +111,7 @@ For project-specific searches, generate a local database:
 
 If searches fail with database errors, run:
 ```bash
-./scripts/hoogle-init-db.sh --force
+${CLAUDE_PLUGIN_ROOT}/scripts/hoogle-init-db.sh --force
 ```
 
 This regenerates the database from scratch.
