@@ -70,6 +70,12 @@ if ! command -v hoogle &> /dev/null; then
     exit 1
 fi
 
+# Check if jq is available
+if ! command -v jq &> /dev/null; then
+    echo '{"error": "jq_not_found", "message": "jq is not installed or not in PATH"}' >&2
+    exit 1
+fi
+
 # Build hoogle command
 HOOGLE_ARGS=(search "$QUERY" --json --count "$COUNT")
 

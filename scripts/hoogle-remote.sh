@@ -68,6 +68,12 @@ if ! command -v curl &> /dev/null; then
     exit 1
 fi
 
+# Check if jq is available
+if ! command -v jq &> /dev/null; then
+    echo '{"error": "jq_not_found", "message": "jq is not installed or not in PATH"}' >&2
+    exit 1
+fi
+
 # URL encode the query
 ENCODED_QUERY=$(printf '%s' "$QUERY" | jq -sRr @uri)
 
