@@ -1,0 +1,8 @@
+{
+  "name": "hoogle",
+  "description": "Search Haskell APIs using Hoogle - find functions by name or type signature",
+  "version": "1.0.0",
+  "author": {
+    "name": "Claude Code Plugin"
+  }
+}
