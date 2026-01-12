@@ -44,4 +44,12 @@ The hoogle skill activates automatically when Claude is working with Haskell cod
 
 ## Installation
 
-Add this plugin to your Claude Code configuration.
+1. Add the marketplace:
+   ```
+   /plugin marketplace add m4dc4p/claude-hoogle
+   ```
+
+2. Install the plugin:
+   ```
+   /plugin install hoogle@claude-hoogle
+   ```
