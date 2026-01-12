@@ -42,6 +42,12 @@ The hoogle skill activates automatically when Claude is working with Haskell cod
 | Find by type | `a -> b -> a`, `(a -> Bool) -> [a] -> [a]` |
 | Filter by package | `+base map`, `+containers lookup` |
 
+## Prerequisites
+
+- `hoogle` executable on PATH (`cabal install hoogle` or `stack install hoogle`)
+- `jq` for JSON parsing
+- For remote search: `curl`
+
 ## Installation
 
 1. Add the marketplace:
